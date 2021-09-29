@@ -2,9 +2,9 @@ function init() {
   let inputEl = document.getElementById("city-input");
   let searchEl = document.getElementById("search-btn");
   let clearEl = document.getElementById("clear-btn");
-  let nameEl = document.getElementById("city-name");
+
   let cityEl = document.getElementById("city-report");
-  let currentPicEl = document.getElementById("current-weather-icon");
+
   let currentTempEl = document.getElementById("temperature");
   let currentHumidityEl = document.getElementById("humidity");
   let currentWindEl = document.getElementById("wind-speed");
@@ -28,14 +28,13 @@ function init() {
       "&appid=" +
       APIKey;
 
-    console.log("From getWeather()" + cityName);
-    console.log("From getWeather()" + queryURL);
+  
 
     fetch(queryURL)
       .then(function (response) {
-        console.log(response.status);
+     
         if (response.status < 400) {
-          console.log(response);
+
           return response.json();
         } else {
           throw new Error("Invalid city name");
@@ -43,14 +42,14 @@ function init() {
       })
       .then(function (response) {
         headerEl.textContent = cityName;
-        console.log(response);
+    
 
         let currentMoment = moment
           .unix(response.dt)
           .utc()
           .utcOffset(response.timezone / 60 / 60);
 
-        console.log(currentMoment.format("DD-MM-YYYY"));
+
 
         cityEl.innerHTML = currentMoment.format("DD-MM-YYYY");
 
@@ -58,27 +57,27 @@ function init() {
           "https://openweathermap.org/img/w/" +
           response.weather[0].icon +
           ".png";
-        console.log(currentWeatherIcon);
+
 
         let currentWeatherHTML = `
         <h2>${response.name} ${currentMoment.format(
           "(MM/DD/YY)"
         )}<img src="${currentWeatherIcon}"></h2>`;
 
-        console.log(currentWeatherHTML);
+ 
 
         headerEl.innerHTML = currentWeatherHTML;
 
         currentTempEl.innerHTML =
           "Temperature: " + k2c(response.main.temp) + " &#176C";
-        console.log(currentTempEl);
+  
 
         currentHumidityEl.innerHTML =
           "Humidity: " + response.main.humidity + "%";
-        console.log(currentHumidityEl);
+
 
         currentWindEl.innerHTML = "Wind Speed: " + response.wind.speed + " MPH";
-        console.log(currentWindEl);
+      
 
         let lat = response.coord.lat;
         let lon = response.coord.lon;
@@ -90,7 +89,7 @@ function init() {
           lon +
           "&APPID=" +
           APIKey;
-        console.log(uvQuery);
+    
 
         fetch(uvQuery)
           .then(function (response) {
@@ -109,7 +108,7 @@ function init() {
           });
 
         let cityID = response.id;
-        console.log("City ID: " + cityID);
+       
 
         let forcastQueryURL =
           "https://api.openweathermap.org/data/2.5/forecast?id=" +
@@ -120,17 +119,17 @@ function init() {
 
         fetch(forcastQueryURL)
           .then(function (response) {
-            console.log(response.status);
+      
             return response.json();
           })
 
           .then(function (response) {
             let fivedayforecastURL =
               "https://api.openweathermap.org/data/2.5/forecast?q=" +
-              inputEl.value +
+              cityName +
               "&APPID=" +
               APIKey;
-            console.log(fivedayforecastURL);
+      
 
             fetch(fivedayforecastURL)
               .then(function (response) {
@@ -138,7 +137,8 @@ function init() {
               })
 
               .then(function (response) {
-                let fiveDayForecastHTML = `
+                  let=fiveDayForecastHTML=''
+                 fiveDayForecastHTML = `
         <h2>5-Day Forecast:</h2>
         <div id="fiveDayForecastUl" class="d-inline-flex flex-wrap ">`;
                 // Loop over the 5 day forecast and build the template HTML using UTC offset and Open Weather Map icon
@@ -186,23 +186,44 @@ function init() {
 
   searchEl.addEventListener("click", function () {
     const searchTerm = inputEl.value;
-    console.log("From event listener: " + searchTerm);
+
     getWeather(searchTerm);
     searchHistory.push(searchTerm);
     localStorage.setItem("search", JSON.stringify(searchHistory));
-    //renderSearchHistory();
+    renderSearchHistory();
   });
 
   clearEl.addEventListener("click", function () {
     searchHistory = [];
-    //renderSearchHistory();
+    localStorage.clear();
+    renderSearchHistory();
   });
 
   function k2c(K) {
     return Math.floor(K - 273);
   }
 
+  function renderSearchHistory(){
+      historyEl.innerHTML = "";
+      for(let i = 0; i<searchHistory.length; i++){
+          const historyItem = document.createElement("li");
+          historyItem.setAttribute("type", "text");
+        
+          historyItem.setAttribute("class", "form-control");
+      
+          historyItem.setAttribute("value", searchHistory[i]);
+     
+          historyItem.textContent=searchHistory[i]
+          historyItem.addEventListener("click", function(event) {
+              console.log(event.target.textContent)
+              getWeather(event.target.textContent);
+          });
+          historyEl.appendChild(historyItem);
   
+      }
+  }
+
+  renderSearchHistory();
 
 }
 
