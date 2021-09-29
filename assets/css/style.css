@@ -13,13 +13,18 @@
     text-shadow: 5px 5px 5px crimson;
 }
 
-#current-weather{
-    padding-bottom: 30px;
+#left-side{
+    margin-left: 50px;
 }
 
-#five-day{
-    padding-top: 20px;
+#current-weather{
+    padding-bottom: 30px;
+    width: 90%
 }
+
+#five-day-forecast{
+    width: 90%;
+} 
 
 .uv-favorable{
     background-color: green;
@@ -38,3 +43,4 @@
     border-radius: 5px;
     color: white;
 }
+
