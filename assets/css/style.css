@@ -1,0 +1,22 @@
+#header{
+    background-size: cover;
+    color: white;
+    background-color: blue;
+    position: relative;
+}
+
+#header h1{
+    font-size: 300%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-shadow: 5px 5px 5px crimson;
+}
+
+#current-weather{
+    padding-bottom: 30px;
+}
+
+#five-day{
+    padding-top: 20px;
+}
