@@ -1,5 +1,5 @@
 Name: Nikhil Kharbanda  
-Project: Weather-Dashboard
+Project: Weather-Dashboard  
 URL to project: https://nikhil-kharbanda.github.io/UofT-WeatherDashboard/  
 Due: September 28th, 2021  
 
