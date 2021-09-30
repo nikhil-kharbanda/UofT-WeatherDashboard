@@ -1,6 +1,6 @@
 Name: Nikhil Kharbanda  
 Project: Weather-Dashboard
-URL to project: https://nikhil-kharbanda.github.io/UofT-WeatherDashboard/
+URL to project: https://nikhil-kharbanda.github.io/UofT-WeatherDashboard/  
 Due: September 28th, 2021  
 
 In this assignment, we were tasked to make a simple weather dashboard using the openweather api.  
