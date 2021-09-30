@@ -12,9 +12,11 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
 
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
+    <!-- Moment.js -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 
     <!-- Style CSS -->
@@ -26,14 +28,19 @@
 
 <body>
 
+    <!--Create the top portion of page. Text to change with city name-->
     <section id="header" class="jumbotron">
         <h1 id="window-text">Weather Dashboard</h1>
     </section>
 
+    <!--The main content that shows the weather information on the right, 
+        and the search bar plust the history of past scities searched to the left-->
     <section class="main-container">
 
+        <!--For the left side, want the search bar and prev history in 1 row-->
         <div class="row" id = "left-side">
             <div class="col-4">
+                <!--Create a textbox to allow the user to search for a city-->
                 <form>
                     <h2>Search for a city</h2>
                     <input id="city-input" type="text" class="form-control" placeholder="Enter city name"
@@ -41,11 +48,13 @@
                     <button class="btn btn-primary" type="button" id="search-btn"><i class="fas fa-search"></i></button>
                     <button class="btn btn-primary" type="button" id="clear-btn"><i class="fa fa-trash"></i></button>
                 </form>
+                <!--Create an empty form to populate prev search results-->
                 <form id="history">
                 </form>
             </div>
 
             <div class="col-8">
+                <!--Create coloum for right side. Shows the current waether, weather icon, date, weather details and 5 day forecast-->
                 <section id="current-weather">
                     <div class="row">
                         <div class="col-12 border border-dark rounded">

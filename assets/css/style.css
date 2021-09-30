@@ -1,3 +1,4 @@
+/*Header for the top bar*/
 #header{
     background-size: cover;
     color: white;
@@ -5,6 +6,7 @@
     position: relative;
 }
 
+/*Font style for the h1 in header (title)*/
 #header h1{
     font-size: 300%;
     text-align: center;
@@ -13,19 +15,23 @@
     text-shadow: 5px 5px 5px crimson;
 }
 
+/*Move left pane slightly away from edge of screen*/
 #left-side{
     margin-left: 50px;
 }
 
+/*Modify size of the weather section*/
 #current-weather{
     padding-bottom: 30px;
     width: 90%
 }
 
+/*Modify size of the 5-day forecast*/
 #five-day-forecast{
     width: 90%;
 } 
 
+/*These 3 classes are to be called when UV-Index value saved in the script file*/
 .uv-favorable{
     background-color: green;
     border-radius: 5px;

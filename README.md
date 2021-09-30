@@ -12,4 +12,7 @@ Checklist:
 [X] The search results are also saved to local storage.  
 
 ![Sample weather dashbord](assets/imgs/Capture.PNG)
-Sample weather output
+Sample weather output  
+
+NOTE:  
+I know the assignment said to convert to imperial, but i set it to Celcius. I did create a function to easily switch between the 2, just need to replace k2c to k2f
