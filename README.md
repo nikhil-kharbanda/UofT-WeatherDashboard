@@ -15,4 +15,6 @@ Checklist:
 Sample weather output  
 
 NOTE:  
-I know the assignment said to convert to imperial, but i set it to Celcius. I did create a function to easily switch between the 2, just need to replace k2c to k2f
+I know the assignment said to convert to imperial, but i set it to Celcius. I did create a function to easily switch between the 2, just need to replace k2c to k2f  
+  
+To run the program, clone this repo and open the index.html file in your browser.  
